@@ -4,11 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-import ordination.DagligFast;
-import ordination.DagligSkaev;
-import ordination.Laegemiddel;
-import ordination.PN;
-import ordination.Patient;
+import ordination.*;
 import storage.Storage;
 
 public class Controller {
@@ -35,8 +31,10 @@ public class Controller {
 	 */
 	public PN opretPNOrdination(LocalDate startDato, LocalDate slutDato,
 			Patient patient, Laegemiddel laegemiddel, double antal) {
-		// TODO
-		return null;
+		PN pn = new PN(startDato,slutDato,antal);
+		pn.setLaegemiddel(laegemiddel);
+		patient.addOrdination(pn);
+		return pn;
 	}
 
 	/**
@@ -46,8 +44,14 @@ public class Controller {
 			LocalDate slutDato, Patient patient, Laegemiddel laegemiddel,
 			double morgenAntal, double middagAntal, double aftenAntal,
 			double natAntal) {
-		// TODO
-		return null;
+		DagligFast dagligFast = new DagligFast(startDato,slutDato);
+		dagligFast.opretDosis(LocalTime.of(06,00),morgenAntal);
+		dagligFast.opretDosis(LocalTime.of(12,00),middagAntal);
+		dagligFast.opretDosis(LocalTime.of(18,00),aftenAntal);
+		dagligFast.opretDosis(LocalTime.of(00,00),natAntal);
+		dagligFast.setLaegemiddel(laegemiddel);
+		patient.addOrdination(dagligFast);
+		return dagligFast;
 	}
 
 	/**
@@ -56,15 +60,21 @@ public class Controller {
 	public DagligSkaev opretDagligSkaevOrdination(LocalDate startDato,
 			LocalDate slutDato, Patient patient, Laegemiddel laegemiddel,
 			LocalTime[] klokkeSlet, double[] antalEnheder) {
-		// TODO
-		return null;
+
+		DagligSkaev dagligSkaev = new DagligSkaev(startDato,slutDato);
+		for (int i = 0; i<antalEnheder.length; i++){
+			dagligSkaev.opretDosis(klokkeSlet[i],antalEnheder[i]);
+		}
+		dagligSkaev.setLaegemiddel(laegemiddel);
+		patient.addOrdination(dagligSkaev);
+		return dagligSkaev;
 	}
 
 	/**
 	 * En dato for hvornår ordinationen anvendes tilføjes ordinationen.
 	 */
 	public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
-		// TODO
+		ordination.givDosis(dato);
 	}
 
 	/**
@@ -73,8 +83,8 @@ public class Controller {
 	 * anvendes, og den er afhængig af patientens vægt.
 	 */
 	public double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
-		//TODO
-		return 0;
+		return laegemiddel.anbefaletDosisPrDoegn(patient.getVaegt());
+
 	}
 
 	/**
@@ -83,8 +93,17 @@ public class Controller {
 	 */
 	public int antalOrdinationerPrVaegtPrLaegemiddel(double vaegtStart,
 													 double vaegtSlut, Laegemiddel laegemiddel) {
-		// TODO
-		return 0;
+		int result = 0;
+		for (Patient patient : storage.getAllPatienter()){
+			if (patient.getVaegt()>=vaegtStart && patient.getVaegt()<=vaegtSlut){
+				for (Ordination ordination : patient.getOrdinationer()) {
+					if (ordination.getLaegemiddel()==laegemiddel){
+						result++;
+					}
+				}
+			}
+		}
+		return result;
 	}
 
 	public List<Patient> getAllPatienter() {

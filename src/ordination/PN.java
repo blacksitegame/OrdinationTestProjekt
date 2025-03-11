@@ -1,10 +1,16 @@
 package ordination;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
-public class PN {
-
+public class PN extends Ordination{
     private double antalEnheder;
+    private ArrayList<LocalDate> givDosisTid = new ArrayList<>();
+
+    public PN(LocalDate startDato, LocalDate slutDato, double antalEnheder) {
+        super(startDato, slutDato);
+        this.antalEnheder=antalEnheder;
+    }
 
     /**
      * Registrerer at der er givet en dosis paa dagen givetDato
@@ -14,28 +20,30 @@ public class PN {
      * @return
      */
     public boolean givDosis(LocalDate givetDato) {
-        // TODO
-        return false;   
+        if (this.getStartDato().isBefore(givetDato) && this.getSlutDato().isAfter(givetDato)){
+            givDosisTid.add(givetDato);
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public double doegnDosis() {
-        // TODO
-        return 0.0;
+        return (givDosisTid.size()*antalEnheder)/givDosisTid.getFirst().compareTo(givDosisTid.getLast());
+    }
+
+    @Override
+    public String getType() {
+        return "PN";
     }
 
 
     public double samletDosis() {
-        // TODO
-        return 0.0;
+        return doegnDosis()*givDosisTid.size();
     }
-
-    /**
-     * Returnerer antal gange ordinationen er anvendt
-     * @return
-     */
+    
     public int getAntalGangeGivet() {
-        // TODO
-        return-1;
+        return givDosisTid.size();
     }
 
     public double getAntalEnheder() {

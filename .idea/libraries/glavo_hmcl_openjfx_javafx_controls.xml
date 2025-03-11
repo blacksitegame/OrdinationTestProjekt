@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="glavo.hmcl.openjfx.javafx.controls" type="repository">
+    <properties maven-id="org.glavo.hmcl.openjfx:javafx-controls:18.0.2+1-arm64" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-controls/18.0.2+1-arm64/javafx-controls-18.0.2+1-arm64.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-controls/18.0.2+1-arm64/javafx-controls-18.0.2+1-arm64-win.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-graphics/18.0.2+1-arm64/javafx-graphics-18.0.2+1-arm64.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-graphics/18.0.2+1-arm64/javafx-graphics-18.0.2+1-arm64-win.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-base/18.0.2+1-arm64/javafx-base-18.0.2+1-arm64.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-base/18.0.2+1-arm64/javafx-base-18.0.2+1-arm64-win.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-controls/18.0.2+1-arm64/javafx-controls-18.0.2+1-arm64-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-controls/18.0.2+1-arm64/javafx-controls-18.0.2+1-arm64-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-graphics/18.0.2+1-arm64/javafx-graphics-18.0.2+1-arm64-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-graphics/18.0.2+1-arm64/javafx-graphics-18.0.2+1-arm64-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-base/18.0.2+1-arm64/javafx-base-18.0.2+1-arm64-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-base/18.0.2+1-arm64/javafx-base-18.0.2+1-arm64-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-controls/18.0.2+1-arm64/javafx-controls-18.0.2+1-arm64-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-controls/18.0.2+1-arm64/javafx-controls-18.0.2+1-arm64-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-graphics/18.0.2+1-arm64/javafx-graphics-18.0.2+1-arm64-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-graphics/18.0.2+1-arm64/javafx-graphics-18.0.2+1-arm64-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-base/18.0.2+1-arm64/javafx-base-18.0.2+1-arm64-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glavo/hmcl/openjfx/javafx-base/18.0.2+1-arm64/javafx-base-18.0.2+1-arm64-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
