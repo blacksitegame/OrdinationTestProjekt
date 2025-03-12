@@ -30,7 +30,9 @@ public class DagligFast extends Ordination {
         double result = 0;
         for (int i = 0; i < this.antalDage(); i++) {
             for (Dosis dosis : dosisArr) {
-                result += dosis.getAntal();
+                if (dosis!=null){
+                    result += dosis.getAntal();
+                }
             }
         }
         return result;
@@ -40,7 +42,9 @@ public class DagligFast extends Ordination {
     public double doegnDosis() {
         double result = 0;
         for (Dosis dosis : dosisArr) {
-            result += dosis.getAntal();
+            if (dosis != null) {
+                result += dosis.getAntal();
+            }
         }
         return result;
     }
