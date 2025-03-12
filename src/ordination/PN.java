@@ -20,7 +20,7 @@ public class PN extends Ordination{
      * @return
      */
     public boolean givDosis(LocalDate givetDato) {
-        if (this.getStartDato().isAfter(givetDato) && this.getSlutDato().isBefore(givetDato)){
+        if (getStartDato().isBefore(givetDato) && getSlutDato().isAfter(givetDato)){
             givDosisTid.add(givetDato);
             return true;
         }else {
@@ -28,14 +28,13 @@ public class PN extends Ordination{
         }
     }
 
-    //TODO
-
     public double doegnDosis() {
-        int ordinationer = givDosisTid.size();
-        double enheder = this.antalEnheder;
-        int dage = givDosisTid.getFirst().compareTo(givDosisTid.getLast());
-        double result = (ordinationer*enheder)/dage;
-        return result;
+        if (givDosisTid.isEmpty()){
+            return 0;
+        }
+        else {
+            return (antalEnheder/givDosisTid.size())/givDosisTid.getFirst().until(givDosisTid.getLast()).getDays();
+        }
     }
 
     @Override

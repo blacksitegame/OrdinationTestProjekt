@@ -155,36 +155,36 @@ public class Controller {
 		this.opretLaegemiddel("Fucidin", 0.025, 0.025, 0.025, "Styk");
 		this.opretLaegemiddel("Methotrexat", 0.01, 0.015, 0.02, "Styk");
 
-		this.opretPNOrdination(LocalDate.of(2021, 1, 1), LocalDate.of(2021, 1, 12),
+		this.opretPNOrdination(LocalDate.of(2025, 1, 1), LocalDate.of(2025, 1, 12),
 				storage.getAllPatienter().get(0), storage.getAllLaegemidler()
 						.get(1),
 				123);
 
-		this.opretPNOrdination(LocalDate.of(2021, 2, 12), LocalDate.of(2021, 2, 14),
+		this.opretPNOrdination(LocalDate.of(2025, 2, 12), LocalDate.of(2025, 2, 14),
 				storage.getAllPatienter().get(0), storage.getAllLaegemidler()
 						.get(0),
 				3);
 
-		this.opretPNOrdination(LocalDate.of(2021, 1, 20), LocalDate.of(2021, 1, 25),
+		this.opretPNOrdination(LocalDate.of(2025, 1, 20), LocalDate.of(2025, 1, 25),
 				storage.getAllPatienter().get(3), storage.getAllLaegemidler()
 						.get(2),
 				5);
 
-		this.opretPNOrdination(LocalDate.of(2021, 1, 1), LocalDate.of(2021, 1, 12),
+		this.opretPNOrdination(LocalDate.of(2025, 1, 1), LocalDate.of(2025, 1, 12),
 				storage.getAllPatienter().get(0), storage.getAllLaegemidler()
 						.get(1),
 				123);
 
-		this.opretDagligFastOrdination(LocalDate.of(2021, 1, 10),
-				LocalDate.of(2021, 1, 12), storage.getAllPatienter().get(1),
+		this.opretDagligFastOrdination(LocalDate.of(2025, 1, 10),
+				LocalDate.of(2025, 1, 12), storage.getAllPatienter().get(1),
 				storage.getAllLaegemidler().get(1), 2, 0, 1, 0);
 
 		LocalTime[] kl = { LocalTime.of(12, 0), LocalTime.of(12, 40),
 				LocalTime.of(16, 0), LocalTime.of(18, 45) };
 		double[] an = { 0.5, 1, 2.5, 3 };
 
-		this.opretDagligSkaevOrdination(LocalDate.of(2021, 1, 23),
-				LocalDate.of(2021, 1, 24), storage.getAllPatienter().get(1),
+		this.opretDagligSkaevOrdination(LocalDate.of(2025, 1, 23),
+				LocalDate.of(2025, 1, 24), storage.getAllPatienter().get(1),
 				storage.getAllLaegemidler().get(2), kl, an);
 	}
 
