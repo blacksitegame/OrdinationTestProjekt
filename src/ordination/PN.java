@@ -20,17 +20,23 @@ public class PN extends Ordination{
      * @return
      */
     public boolean givDosis(LocalDate givetDato) {
-        if (getStartDato().isBefore(givetDato) && getSlutDato().isAfter(givetDato)){
+        if (getStartDato().isBefore(givetDato) && getSlutDato().isAfter(givetDato)
+                || getStartDato().equals(givetDato) || getSlutDato().equals(givetDato)){
             givDosisTid.add(givetDato);
+            givDosisTid.sort(LocalDate::compareTo);
             return true;
         }else {
             return false;
         }
     }
 
+    //TODO
     public double doegnDosis() {
         if (givDosisTid.isEmpty()){
             return 0;
+        }
+        else if (givDosisTid.size()==1) {
+            return antalEnheder;
         }
         else {
             return (antalEnheder/givDosisTid.size())/givDosisTid.getFirst().until(givDosisTid.getLast()).getDays();
