@@ -25,15 +25,18 @@ public class Laegemiddel {
     }
 
     public double anbefaletDosisPrDoegn(double vaegt) {
-        if (vaegt<25){
-            return enhedPrKgPrDoegnLet;
+        if (vaegt>0) {
+            if (vaegt < 25 && vaegt > 0) {
+                return enhedPrKgPrDoegnLet;
+            } else if (vaegt > 120) {
+                return enhedPrKgPrDoegnTung;
+            } else {
+                return enhedPrKgPrDoegnNormal;
+            }
+        } else {
+            return 0;
         }
-        else if (vaegt>120){
-            return enhedPrKgPrDoegnTung;
-        }
-        else {
-            return enhedPrKgPrDoegnNormal;
-        }
+
     }
 
     @Override
