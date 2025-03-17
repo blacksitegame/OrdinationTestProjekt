@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class DagligFast extends Ordination {
     private Dosis[] dosisArr = new Dosis[4];
-    private int count = 0;
 
     public DagligFast(LocalDate startDato, LocalDate slutDato) {
         super(startDato, slutDato);
@@ -14,9 +13,8 @@ public class DagligFast extends Ordination {
 
     public Dosis opretDosis(LocalTime tid, double antal) {
         Dosis dosis = new Dosis(tid, antal);
-        for (int i = 0; i < antal; i++) {
-            dosisArr[count] = dosis;
-            count++;
+        for (int i = 0; i < dosisArr.length; i++) {
+            dosisArr[i] = dosis;
         }
         return dosis;
     }
