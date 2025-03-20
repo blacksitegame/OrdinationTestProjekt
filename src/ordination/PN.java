@@ -35,11 +35,8 @@ public class PN extends Ordination{
         if (givDosisTid.isEmpty()){
             return 0;
         }
-        else if (givDosisTid.size()==1) {
-            return antalEnheder;
-        }
         else {
-            return (antalEnheder/givDosisTid.size())/givDosisTid.getFirst().until(givDosisTid.getLast()).getDays();
+            return (antalEnheder/givDosisTid.size())/(givDosisTid.getFirst().until(givDosisTid.getLast()).getDays()+1);
         }
     }
 

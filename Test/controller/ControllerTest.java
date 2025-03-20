@@ -4,6 +4,7 @@ import ordination.*;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 class ControllerTest {
@@ -74,6 +75,22 @@ class ControllerTest {
 
     @Test
     void opretDagligSkaevOrdination() {
+        LocalTime[] localtimeArr = {
+                LocalTime.of(06,00),
+                LocalTime.of(12,00),
+                LocalTime.of(18,00),
+                LocalTime.of(00,00)
+        };
 
+        double[] dosisArr = {10,10,10,10};
+
+        Patient patient1 = Controller.getController().opretPatient("Victor", "navn", 24);
+        Laegemiddel laegemiddel1 = Controller.getController().opretLaegemiddel("Janick",10,
+                20,30,"enhed");
+        DagligSkaev dagligSkaev = Controller.getController().opretDagligSkaevOrdination(LocalDate.of(2025,01,1),
+                LocalDate.of(2025,01,8),patient1,laegemiddel1,localtimeArr,dosisArr);
+        for (Ordination ordination : patient1.getOrdinationer()) {
+            assertEquals(dagligSkaev,ordination);
+        }
     }
 }

@@ -9,9 +9,15 @@ public class Patient {
     ArrayList<Ordination> ordinationArrayList = new ArrayList<>();
 
     public Patient(String cprnr, String navn, double vaegt) {
-        this.cprnr = cprnr;
-        this.navn = navn;
-        this.vaegt = vaegt;
+        try {
+            if (vaegt>0){
+                this.cprnr = cprnr;
+                this.navn = navn;
+                this.vaegt = vaegt;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String getCprnr() {
