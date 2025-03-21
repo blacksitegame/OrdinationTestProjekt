@@ -68,8 +68,6 @@ class DagligSkaevTest {
                 LocalDate.of(2025,01,8),patient1,laegemiddel1,localTimes,new double[]{10,10,10,10,10});
 
         assertEquals(400, dagligSkaev.samletDosis());
-
-
     }
 
     @Test
