@@ -32,11 +32,12 @@ public class PN extends Ordination{
 
     //TODO
     public double doegnDosis() {
-        if (givDosisTid.isEmpty()){
-            return 0;
+        if (givDosisTid.isEmpty()) {
+            return antalEnheder;
         }
         else {
-            return (antalEnheder/givDosisTid.size())/(givDosisTid.getFirst().until(givDosisTid.getLast()).getDays()+1);
+            int days = givDosisTid.getFirst().until(givDosisTid.getLast()).getDays()+1;
+            return (givDosisTid.size()*antalEnheder)/days;
         }
     }
 
@@ -47,7 +48,7 @@ public class PN extends Ordination{
 
 
     public double samletDosis() {
-        return doegnDosis()*givDosisTid.size();
+        return antalEnheder*givDosisTid.size();
     }
     
     public int getAntalGangeGivet() {

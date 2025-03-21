@@ -23,26 +23,54 @@ class PNTest {
     }
 
     @Test
-    //TODO
     void doegnDosis() {
         Patient patient1 = Controller.getController().opretPatient("Victor", "navn", 24);
         Laegemiddel laegemiddel1 = Controller.getController().opretLaegemiddel("Janick",10,
                 20,30,"enhed");
         PN pn = controller.opretPNOrdination(LocalDate.of(2025,01,1),
                 LocalDate.of(2025,01,8),patient1,laegemiddel1,10);
+        pn.givDosis(LocalDate.of(2025,01,4));
         pn.givDosis(LocalDate.of(2025,01,6));
-        assertEquals(40,pn.doegnDosis());
+        pn.givDosis(LocalDate.of(2025,01,8));
+        assertEquals(6,pn.doegnDosis());
     }
 
     @Test
     void samletDosis() {
+        Patient patient1 = Controller.getController().opretPatient("Victor", "navn", 24);
+        Laegemiddel laegemiddel1 = Controller.getController().opretLaegemiddel("Janick",10,
+                20,30,"enhed");
+        PN pn = controller.opretPNOrdination(LocalDate.of(2025,01,1),
+                LocalDate.of(2025,01,8),patient1,laegemiddel1,10);
+        pn.givDosis(LocalDate.of(2025,01,4));
+        pn.givDosis(LocalDate.of(2025,01,6));
+        pn.givDosis(LocalDate.of(2025,01,8));
+        assertEquals(30,pn.samletDosis());
     }
 
     @Test
     void getAntalGangeGivet() {
+        Patient patient1 = Controller.getController().opretPatient("Victor", "navn", 24);
+        Laegemiddel laegemiddel1 = Controller.getController().opretLaegemiddel("Janick",10,
+                20,30,"enhed");
+        PN pn = controller.opretPNOrdination(LocalDate.of(2025,01,1),
+                LocalDate.of(2025,01,8),patient1,laegemiddel1,10);
+        pn.givDosis(LocalDate.of(2025,01,4));
+        pn.givDosis(LocalDate.of(2025,01,6));
+        pn.givDosis(LocalDate.of(2025,01,8));
+        assertEquals(3,pn.getAntalGangeGivet());
     }
 
     @Test
     void getAntalEnheder() {
+        Patient patient1 = Controller.getController().opretPatient("Victor", "navn", 24);
+        Laegemiddel laegemiddel1 = Controller.getController().opretLaegemiddel("Janick",10,
+                20,30,"enhed");
+        PN pn = controller.opretPNOrdination(LocalDate.of(2025,01,1),
+                LocalDate.of(2025,01,8),patient1,laegemiddel1,10);
+        pn.givDosis(LocalDate.of(2025,01,4));
+        pn.givDosis(LocalDate.of(2025,01,6));
+        pn.givDosis(LocalDate.of(2025,01,8));
+        assertEquals(10,pn.getAntalEnheder());
     }
 }
