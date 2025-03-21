@@ -51,7 +51,7 @@ class OrdinationTest {
 
     @Test
     void getLaegemiddel() {
-        Laegemiddel laegemiddel = new Laegemiddel("Jannick", 9.7, 60, 120, "Piller");
+        Laegemiddel laegemiddel = new Laegemiddel("Janick", 9.7, 60, 120, "Piller");
         ordination.setLaegemiddel(laegemiddel);
 
         Laegemiddel expected = laegemiddel;
@@ -62,7 +62,7 @@ class OrdinationTest {
 
     @Test
     void setLaegemiddel() {
-        Laegemiddel laegemiddel = new Laegemiddel("Jannick", 9.7, 60, 120, "Piller");
+        Laegemiddel laegemiddel = new Laegemiddel("Janick", 9.7, 60, 120, "Piller");
         ordination.setLaegemiddel(laegemiddel);
 
         Laegemiddel expected = laegemiddel;
